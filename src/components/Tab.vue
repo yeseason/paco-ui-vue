@@ -7,8 +7,14 @@
     export default{
     	name:"Tab",
         props: {
-            title:{type:String,required: true},
-            active:{type:[Boolean,String],default:false}
+            title:{type:String,required: true}
+            
+        },
+        data(){
+            return{
+                active:false
+            }
         }
+
     }
 </script>

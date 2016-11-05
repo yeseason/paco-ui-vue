@@ -8,8 +8,8 @@
           <div class="right"></div>
         </div>
       </div>
-    <Tabs type="normal" >
-      <Tab title="tabname1" active=true >
+    <Tabs type="normal" act='1'>
+      <Tab title="tabname1" >
         hello word
       </Tab>
       <Tab title="tabname2" >
@@ -20,6 +20,7 @@
         hello ios
       </Tab>
     </Tabs>
+
   </div>
 </template>
 

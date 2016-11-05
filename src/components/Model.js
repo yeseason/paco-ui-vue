@@ -53,7 +53,7 @@ var showNextMsg = function() {
           instance[prop] = options[prop];
         }
       }
-      
+
       document.body.appendChild(instance.$el);
 
       Vue.nextTick(() => {

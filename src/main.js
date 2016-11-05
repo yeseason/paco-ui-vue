@@ -26,7 +26,6 @@ import Search from './view/SearchView.vue'
 import List from './view/ListView.vue'
 import Illustration from './view/illustration.vue'
 import Text from './view/text.vue'
-import Popup from './view/PopupView.vue'
 import Picker from './view/PickerView.vue'
 import Keyboard from './view/KeyboardView.vue'
 
@@ -159,11 +158,6 @@ const router = new Router({
 		name: 'illustration',
 		component: Illustration,
 		title: 'illustration'
-	}, {
-		path: '/popup',
-		name: 'popup',
-		component: Popup,
-		title: 'popup'
 	}, {
 		path: '*',
 		redirect: '/'

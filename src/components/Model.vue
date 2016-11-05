@@ -1,9 +1,9 @@
 <template>
 <div>
 	<div class="mask" v-show="visible"></div>
-	<div class="modal " v-show="visible" v-html="message">
+	<div class="modal " v-show="visible" >
 	    <i v-on:click="handleActions('cancel')" class="close paco icon-close"></i>
-		<div v-html="message"></div>
+		<div  v-html="message"></div>
 		
 		<button v-on:click="handleActions('confirm')" class="btn primary">{{btn}}</button>
 		

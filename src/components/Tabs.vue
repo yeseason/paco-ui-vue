@@ -1,7 +1,7 @@
 <template>
 <div>
     <div class="tabs  " v-bind:class="{normal:type=='normal',pills:type=='pills','col-2':tabnum,'col-3':!tabnum}">
-      <div v-for="tabs in tablist" class="tab "  v-bind:class='{active:tabindex==$index}'  v-on:click="tab($index)">{{tabs.title}}</div>
+      <div v-for="(tabs,index) in tablist" class="tab "  v-bind:class='{active:tabindex==index}'  v-on:click="tab(index)">{{tabs.title}}</div>
     </div>
     <div class="tabs-content ">
         <slot></slot>
@@ -14,7 +14,8 @@
 	export default{
 		name:'Tabs',
 		props: {
-			type:{}
+			type:{},
+            act:{type:[Number,String],required: 0}
 		},
 		data(){
 			return{
@@ -23,25 +24,28 @@
                 tabnum:true,
 				tablist:[]
 			}
-		},		
-		created(){
-			this.tabindex=0
+		},
+        cread(){
+            
+        },	
+		mounted(){
+			this.tabindex=this.act
             this.num = 0
-			let self = this;
-            console.log(this.$children)
-        	this.$children.map((key,c)=>{
-                console.log(key)
+            let children = this.$children
+        	children.map((key,c)=>{
                 this.num = this.num+1
-            	self.tablist.push({
-                    "title": c.title,
-                    "active": c.active
+            	this.tablist.push({
+                    "title": key.title,
+                    "active": key.active
                 });
         	})
+            this.$children[this.act].active=true;
             if (this.num==2) {
                 this.tabnum=true
             }else{
                 this.tabnum=false
             }
+            
 		},
   		methods: {
     		tab(num) {
@@ -51,7 +55,8 @@
     				c.active=false
     			})
     			this.$children[num].active=true;
-                this.$dispatch('tba-msg', this.tabindex);
+
+                this.$emit('tba-msg', this.tabindex);
     		}
   		}
 		

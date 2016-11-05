@@ -18,7 +18,6 @@ import Share from './components/Share.vue';
 import Tab from './components/Tab.vue';
 import Tabs from './components/Tabs.vue';
 import Toast from './components/Toast.js'
-import Popup from './components/popup.vue'
 import Illustration from './components/illustration.vue'
 import Picker from './components/picker.vue'
 import Keyboard from './components/Keyboard.vue'
@@ -46,7 +45,6 @@ const install = function(Vue) {
     Vue.component(Tab.name, Tab);
     Vue.component(Tabs.name,Tabs);
     Vue.component(Toast.name, Toast);
-    Vue.component(Popup.name,Popup);
     Vue.component(Illustration.name,Illustration);
 };
 
