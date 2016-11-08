@@ -33,11 +33,6 @@ export default {
   },
   methods:{
 
-  },
-  events:{
-    'tba-msg'(msg){
-      console.log(msg)
-    }
   }
 }
 </script>

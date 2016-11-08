@@ -3,8 +3,9 @@
 	<div class="mask" v-show="visible"></div>
 	<div class="modal " v-show="visible" >
 	    <i v-on:click="handleActions('cancel')" class="close paco icon-close"></i>
-		<div  v-html="message"></div>
-		
+		<img class='image' v-bind:src="img" role='presentation'>
+		<div class='desc'>{{desc}}</div>
+		<div class='desc'>{{tips}}</div>
 		<button v-on:click="handleActions('confirm')" class="btn primary">{{btn}}</button>
 		
 	</div>	
@@ -17,7 +18,9 @@
 		data(){
 			return{
 				btn:"确定",
-				message:"",
+				desc:"",
+				tips:"",
+				img:"",
 				callback:null,
 				visible:true
 			}

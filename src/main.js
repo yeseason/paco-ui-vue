@@ -1,12 +1,12 @@
 import Vue from 'vue'
 import Router from 'vue-Router'
-import Paco from './index.js'
+import Paco from './index'
 
 import App from './App.vue'
 import Actionsheet from './view/ActionsheetView.vue'
 import Tab from './view/TabView.vue'
 import Button from './view/ButtonView.vue'
-import Border from './view/Border.vue'
+import Border from './view/BorderView.vue'
 import Loading from './view/LoadingView.vue'
 import Card from './view/CardView.vue'
 import Checkbox from './view/checkboxView.vue'
@@ -25,9 +25,10 @@ import Agreeme from './view/AgreemeView.vue'
 import Search from './view/SearchView.vue'
 import List from './view/ListView.vue'
 import Illustration from './view/illustration.vue'
-import Text from './view/text.vue'
+import Text from './view/TextView.vue'
 import Picker from './view/PickerView.vue'
 import Keyboard from './view/KeyboardView.vue'
+import Result from './view/resultView.vue'
 
 Vue.use(Paco)
 Vue.use(Router)
@@ -158,6 +159,11 @@ const router = new Router({
 		name: 'illustration',
 		component: Illustration,
 		title: 'illustration'
+	},{
+		path: '/result',
+		name: 'result',
+		component: Result,
+		title: 'result'
 	}, {
 		path: '*',
 		redirect: '/'

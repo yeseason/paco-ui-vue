@@ -1,26 +1,27 @@
-import Ad from './components/Ad.vue';
-import Actionsheet from './components/Actionsheet.js';
-import Button from './components/button.vue';
-import Border from './components/Border.vue';
-import Agreement from './components/Agreement.vue';
-import Alert from './components/alert.js';
-import Announcement from './components/Announcement.vue';
-import Card from './components/card.vue';
-import Switch from './components/Switch.vue';
-import Input from './components/Input.vue';
-import Check from './components/Check.vue';
-import Mask from './components/Mask.vue';
-import List from './components/List.vue';
-import Loading from './components/Loading.vue';
-import Search from './components/Search.vue';
-import Model from './components/Model.js';
-import Share from './components/Share.vue';
-import Tab from './components/Tab.vue';
-import Tabs from './components/Tabs.vue';
+import Ad from './components/Ad.vue'
+import Actionsheet from './components/Actionsheet.js'
+import Button from './components/button.vue'
+import Border from './components/Border.vue'
+import Agreement from './components/Agreement.vue'
+import Alert from './components/alert.js'
+import Announcement from './components/Announcement.vue'
+import Card from './components/card.vue'
+import Switch from './components/Switch.vue'
+import Input from './components/Input.vue'
+import Check from './components/Check.vue'
+import Mask from './components/Mask.vue'
+import List from './components/List.vue'
+import Loading from './components/Loading.vue'
+import Search from './components/Search.vue'
+import Model from './components/Model.js'
+import Share from './components/Share.vue'
+import Tab from './components/Tab.vue'
+import Tabs from './components/Tabs.vue'
 import Toast from './components/Toast.js'
 import Illustration from './components/illustration.vue'
 import Picker from './components/picker.vue'
 import Keyboard from './components/Keyboard.vue'
+import Result from './components/Result.vue'
 
 const install = function(Vue) {
     Vue.component(Ad.name, Ad);
@@ -33,6 +34,7 @@ const install = function(Vue) {
     Vue.component(Alert.name, Alert);
     Vue.component(Announcement.name, Announcement);
     Vue.component(Picker.name,Picker);
+    Vue.component(Result.name,Result);
     Vue.component(Switch.name, Switch);
     Vue.component(Input.name, Input);
     Vue.component(Check.name, Check);
@@ -64,6 +66,7 @@ module.exports = {
   Picker,
   Alert,
   Announcement,
+  Result,
   Card,
   Switch,
   Input,

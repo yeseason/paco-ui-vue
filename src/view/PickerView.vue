@@ -33,11 +33,7 @@ export default {
     }
   },
   created(){
-    setTimeout(()=>{
-      this.setyear = 2005
-      this.setmonth = 7
-      this.setday = 20      
-    },10000)
+
 
   },
   methods:{

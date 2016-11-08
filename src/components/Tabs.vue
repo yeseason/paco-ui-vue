@@ -32,19 +32,15 @@
 			this.tabindex=this.act
             this.num = 0
             let children = this.$children
-        	children.map((key,c)=>{
+        	children.forEach(c=>{
                 this.num = this.num+1
             	this.tablist.push({
-                    "title": key.title,
-                    "active": key.active
+                    "title": c.title,
+                    "active": c.active
                 });
         	})
             this.$children[this.act].active=true;
-            if (this.num==2) {
-                this.tabnum=true
-            }else{
-                this.tabnum=false
-            }
+            this.num==2?this.tabnum=true:this.tabnum=false
             
 		},
   		methods: {
