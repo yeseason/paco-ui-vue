@@ -17,7 +17,7 @@ Vue Components for PACO-UI
 
 ```bash
   npm install vue-touch
-  npm i --save git+ssh://git@git.pingan.com:npm/paco-ui-vue.git#VERSION
+  npm i --save paco-ui-vue
 ```
 
 > 注：`VERSION`为要使用版本
