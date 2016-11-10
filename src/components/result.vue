@@ -9,18 +9,18 @@
 </div>
 </template>
 <script>
-	export default{
-		name:'paco-result',
-		props:{
-			description:{type:String},
-			title:{type:String},
-			btn:{type:String},
-			type:{type:String}
-		},
-		methods:{
-			handleActions(action){
-				this.$emit('handleActions',action)
-			}
+export default{
+	name:'paco-result',
+	props:{
+		description:{type:String},
+		title:{type:String},
+		btn:{type:String},
+		type:{type:String}
+	},
+	methods:{
+		handleActions(action){
+			this.$emit('handleActions',action)
 		}
 	}
+}
 </script>

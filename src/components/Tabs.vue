@@ -11,50 +11,50 @@
 </template>
 
 <script>
-	export default{
-		name:'Tabs',
-		props: {
-			type:{},
-            act:{type:[Number,String],required: 0}
-		},
-		data(){
-			return{
-				tabindex:null,
-                num:null,
-                tabnum:true,
-				tablist:[]
-			}
-		},
-        cread(){
-            
-        },	
-		mounted(){
-			this.tabindex=this.act
-            this.num = 0
-            let children = this.$children
-        	children.forEach(c=>{
-                this.num = this.num+1
-            	this.tablist.push({
-                    "title": c.title,
-                    "active": c.active
-                });
-        	})
-            this.$children[this.act].active=true;
-            this.num==2?this.tabnum=true:this.tabnum=false
-            
-		},
-  		methods: {
-    		tab(num) {
-    			this.tabindex=num
+export default{
+	name:'Tabs',
+	props: {
+		type:{},
+        act:{type:[Number,String],required: 0}
+	},
+	data(){
+		return{
+			tabindex:null,
+            num:null,
+            tabnum:true,
+			tablist:[]
+		}
+	},
+    cread(){
+        
+    },	
+	mounted(){
+		this.tabindex=this.act
+        this.num = 0
+        let children = this.$children
+    	children.forEach(c=>{
+            this.num = this.num+1
+        	this.tablist.push({
+                "title": c.title,
+                "active": c.active
+            });
+    	})
+        this.$children[this.act].active=true;
+        this.num==2?this.tabnum=true:this.tabnum=false
+        
+	},
+		methods: {
+		tab(num) {
+			this.tabindex=num
 
-    			this.$children.forEach(c=>{
-    				c.active=false
-    			})
-    			this.$children[num].active=true;
+			this.$children.forEach(c=>{
+				c.active=false
+			})
+			this.$children[num].active=true;
 
-                this.$emit('tba-msg', this.tabindex);
-    		}
-  		}
-		
-	}
+            this.$emit('tba-msg', this.tabindex);
+		}
+		}
+	
+}
 </script>

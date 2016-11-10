@@ -39,12 +39,12 @@ const router = new Router({
 		name: 'index',
 		component: Index,
 		title: '首页'
-	},{
+	}, {
 		path: '/keyboard',
 		name: 'keyboard',
 		component: Keyboard,
 		title: 'keyboard'
-	},{
+	}, {
 		path: '/actionsheet',
 		name: 'actionsheet',
 		component: Actionsheet,
@@ -104,11 +104,11 @@ const router = new Router({
 		name: 'ad',
 		component: Ad,
 		title: 'ad'
-	},{
-		path:'/picker',
-		name:'picker',
-		component:Picker,
-		title:'picker'
+	}, {
+		path: '/picker',
+		name: 'picker',
+		component: Picker,
+		title: 'picker'
 	}, {
 		path: '/switch',
 		name: 'switch',
@@ -159,7 +159,7 @@ const router = new Router({
 		name: 'illustration',
 		component: Illustration,
 		title: 'illustration'
-	},{
+	}, {
 		path: '/result',
 		name: 'result',
 		component: Result,
@@ -171,4 +171,6 @@ const router = new Router({
 
 })
 
-new Vue({router}).$mount('#root')
+new Vue({
+	router
+}).$mount('#root')

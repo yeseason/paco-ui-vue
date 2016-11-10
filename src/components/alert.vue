@@ -13,52 +13,50 @@
 
 </template>
 <script>
-  var CONFIRM_TEXT = '确定';
-  var CANCEL_TEXT = '取消';
-	export default{
-		name:'Alert',
-		props:{
+export default{
+	name:'Alert',
+	props:{
 
-		},
-		ready(){
-			let num = this.num; 
+	},
+	ready(){
+		let num = this.num; 
+		console.log(num);
+		if(num!=""){
 			console.log(num);
-			if(num!=""){
+			var t = setInterval(()=>{
+				num = num-1
+				this.num = num
+				if(num ==0){
+					window.clearInterval(t);
+				}
 				console.log(num);
-				var t = setInterval(()=>{
-					num = num-1
-					this.num = num
-					if(num ==0){
-						window.clearInterval(t);
-					}
-					console.log(num);
-				},1000)
+			},1000)
 
-			}
+		}
 
-		},
-		methods:{
-			handleActions(action){
-				var callback = this.callback;
-        		this.visible = false;
-        		callback(action);
-			}
-		},
+	},
+	methods:{
+		handleActions(action){
+			var callback = this.callback;
+    		this.visible = false;
+    		callback(action);
+		}
+	},
 
-		data(){
-			return{
-				title:'',
-				message:'',
-				cancelButtonText:CANCEL_TEXT ,
-				confirmButtonText:CONFIRM_TEXT,
-				showCancelButton: true,
-				visible :true,
-				btn:true,
-				num:"",
-				duration:"",
-				callback:null
-			}
-		},
+	data(){
+		return{
+			title:'',
+			message:'',
+			cancelButtonText:CANCEL_TEXT ,
+			confirmButtonText:CONFIRM_TEXT,
+			showCancelButton: true,
+			visible :true,
+			btn:true,
+			num:"",
+			duration:"",
+			callback:null
+		}
+	},
 
-	}
+}
 </script>

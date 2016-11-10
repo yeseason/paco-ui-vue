@@ -4,10 +4,10 @@
 	</div>
 </template>
 <script >
-	export default{
-		name:'popup',
-		props:{
-			visible:{type:[String,Boolean],default:false}
-		}
+export default{
+	name:'popup',
+	props:{
+		visible:{type:[String,Boolean],default:false}
 	}
+}
 </script>

@@ -13,24 +13,24 @@
 
 </template>
 <script>
-	export default{
-		name:'Model',
-		data(){
-			return{
-				btn:"确定",
-				desc:"",
-				tips:"",
-				img:"",
-				callback:null,
-				visible:true
-			}
-		},
-		methods:{
-			handleActions(action){
-				this.visible=false;
-				var callback = this.callback
-				callback(action)
-			}
+export default{
+	name:'Model',
+	data(){
+		return{
+			btn:"确定",
+			desc:"",
+			tips:"",
+			img:"",
+			callback:null,
+			visible:true
+		}
+	},
+	methods:{
+		handleActions(action){
+			this.visible=false;
+			var callback = this.callback
+			callback(action)
 		}
 	}
+}
 </script>

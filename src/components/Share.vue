@@ -27,17 +27,17 @@
 
 </template>
 <script>
-	export default{
-		name:"Share",
-		props:{
-			active:{type:[Boolean,String],default:false,twoWay:true}
+export default{
+	name:"Share",
+	props:{
+		active:{type:[Boolean,String],default:false,twoWay:true}
+	},
+	methods:{
+		confirm(action){
+			
+			this.$emit('share',action)
+			
 		},
-		methods:{
-			confirm(action){
-				
-				this.$emit('share',action)
-				
-			},
-		}
 	}
+}
 </script>

@@ -1,26 +1,28 @@
-const CONFIRM_TEXT = '确定';
-const CANCEL_TEXT = '取消';
-
-var defaults = {
-  title: '',
-  message: '',
-  confirmButtonText: CONFIRM_TEXT,
-  cancelButtonText: CANCEL_TEXT,
-  btn:true,
-  duration:"3000",
-  num:"",
-  showCancelButton:true
-};
 
 import Vue from 'vue';
 import alertvue from './alert.vue';
 
-var merge = function(target) {
-  for (var i = 1, j = arguments.length; i < j; i++) {
-    var source = arguments[i];
-    for (var prop in source) {
+const CONFIRM_TEXT = '确定';
+const CANCEL_TEXT = '取消';
+
+let defaults = {
+  title: '',
+  message: '',
+  confirmButtonText: CONFIRM_TEXT,
+  cancelButtonText: CANCEL_TEXT,
+  btn: true,
+  duration: "3000",
+  num: "",
+  showCancelButton: true
+};
+
+
+let merge = function(target) {
+  for (let i = 1, j = arguments.length; i < j; i++) {
+    let source = arguments[i];
+    for (let prop in source) {
       if (source.hasOwnProperty(prop)) {
-        var value = source[prop];
+        let value = source[prop];
         if (value !== undefined) {
           target[prop] = value;
         }
@@ -31,72 +33,74 @@ var merge = function(target) {
   return target;
 };
 
-var alertConstructor = Vue.extend(alertvue);
+let alertConstructor = Vue.extend(alertvue);
 
-var currentMsg, instance,duration;
-var msgQueue = [];
+let currentMsg, instance, duration;
+let msgQueue = [];
 
-var initInstance = function() {
+let initInstance = function() {
   instance = new alertConstructor({
     el: document.createElement('div')
   });
 
   instance.callback = function(action) {
-      var callback = currentMsg.callback;
-      callback(action);
+    let callback = currentMsg.callback;
+    callback(action);
   };
 };
 
 
-var showNextMsg = function(options) {
+let showNextMsg = function(options) {
 
 
 
-    initInstance();
+  initInstance();
 
 
-    if (msgQueue.length > 0) {
-      currentMsg = msgQueue.shift();
+  if (msgQueue.length > 0) {
+    currentMsg = msgQueue.shift();
 
-      var options = currentMsg.options;
-      for (var prop in options) {
-        if (options.hasOwnProperty(prop)) {
-          instance[prop] = options[prop];
-        }
+    let options = currentMsg.options;
+    for (let prop in options) {
+      if (options.hasOwnProperty(prop)) {
+        instance[prop] = options[prop];
       }
-      if(!options.btn){
-
-        duration  = options.duration
-      }
-      
-      document.body.appendChild(instance.$el);
-
-
-      Vue.nextTick(() => {
-        instance.visible = true;
-          if(!options.btn){
-            setTimeout(()=>{
-
-              instance.$remove();
-              var callback = currentMsg.callback;
-              callback("duration");
-              
-            },duration)
-          }
-      });
     }
-  
+    if (!options.btn) {
+
+      duration = options.duration
+    }
+
+    document.body.appendChild(instance.$el);
+
+
+    Vue.nextTick(() => {
+      instance.visible = true;
+      if (!options.btn) {
+        setTimeout(() => {
+
+          instance.$remove();
+          let callback = currentMsg.callback;
+          callback("duration");
+
+        }, duration)
+      }
+    });
+  }
+
 };
 
-var alert = function(options, callback) {
+let alert = function(options, callback) {
 
-    msgQueue.push({
-      options: merge({}, defaults, alert.defaults || {}, options),
-      callback: callback
-    });
+  msgQueue.push({
+    options: merge({}, defaults, alert.defaults || {}, options),
+    callback: callback
+  });
 
-    showNextMsg(options);
+  showNextMsg(options);
 };
 
 export default alert;
-export { alert };
+export {
+  alert
+};

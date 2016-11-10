@@ -22,45 +22,45 @@
 	</div>
 </template>
 <script >
-	export default{
-		name:'paco-input',
-		props:{
-			label:{type:[Boolean,String],default:false},
-			span:{type:[Boolean,String],default:false},
-			wrong:{type:[Boolean,String],default:false},
-			camera:{type:[Boolean,String],default:false},
-			highlight:{type:[Boolean,String],default:false},
-			lettip:{type:[Boolean,String],default:false},
-			vehicle:{type:[Boolean,String],default:false},
-			captcha:{type:[Boolean,String],default:false},
-			til:{type:String},
-			value:{type:String}
-		},
-		data(){
-			return{
-				check:'发送校验码',
-				show:true
-			}
-		},
-		methods:{
-			times(){
-				let s=60
-				let t=setInterval(()=>{
-					if(s>1){
-						s--
-						this.check=s+"秒后重新发送"
-						this.show=false
-					}else{
-						window.clearInterval(t);
-						this.check="重发校验码"
-						this.show=true
-						
-					}
-				},1000);
-			}
-
+export default{
+	name:'paco-input',
+	props:{
+		label:{type:[Boolean,String],default:false},
+		span:{type:[Boolean,String],default:false},
+		wrong:{type:[Boolean,String],default:false},
+		camera:{type:[Boolean,String],default:false},
+		highlight:{type:[Boolean,String],default:false},
+		lettip:{type:[Boolean,String],default:false},
+		vehicle:{type:[Boolean,String],default:false},
+		captcha:{type:[Boolean,String],default:false},
+		til:{type:String},
+		value:{type:String}
+	},
+	data(){
+		return{
+			check:'发送校验码',
+			show:true
+		}
+	},
+	methods:{
+		times(){
+			let s=60
+			let t=setInterval(()=>{
+				if(s>1){
+					s--
+					this.check=s+"秒后重新发送"
+					this.show=false
+				}else{
+					window.clearInterval(t);
+					this.check="重发校验码"
+					this.show=true
+					
+				}
+			},1000);
 		}
 
 	}
+
+}
 </script>
 

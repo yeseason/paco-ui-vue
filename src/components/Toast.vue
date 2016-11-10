@@ -5,11 +5,11 @@
 	</div>
 </template>
 <script>
-	export default{
-		name:'Toast',
-		props:{
-			message:{type:String},
-			type:{type:String}
-		}
+export default{
+	name:'Toast',
+	props:{
+		message:{type:String},
+		type:{type:String}
 	}
+}
 </script>

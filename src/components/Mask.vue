@@ -3,8 +3,8 @@
 </template>
 <script >
 	
-	export default{
-		name:'paco-mask'
-	}
+export default{
+	name:'paco-mask'
+}
 </script>
 

@@ -1,17 +1,17 @@
-var defaults = {
+import Vue from 'vue';
+import modelvue from './model.vue';
+
+let defaults = {
   btn: '确定',
   message: ''
 };
 
-import Vue from 'vue';
-import modelvue from './model.vue';
-
-var merge = function(target) {
-  for (var i = 1, j = arguments.length; i < j; i++) {
-    var source = arguments[i];
-    for (var prop in source) {
+let merge = function(target) {
+  for (let i = 1, j = arguments.length; i < j; i++) {
+    let source = arguments[i];
+    for (let prop in source) {
       if (source.hasOwnProperty(prop)) {
-        var value = source[prop];
+        let value = source[prop];
         if (value !== undefined) {
           target[prop] = value;
         }
@@ -22,57 +22,57 @@ var merge = function(target) {
   return target;
 };
 
-var modelConstructor = Vue.extend(modelvue);
+let modelConstructor = Vue.extend(modelvue);
 
-var currentMsg, instance;
-var msgQueue = [];
+let currentMsg, instance;
+let msgQueue = [];
 
-var initInstance = function() {
+let initInstance = function() {
   instance = new modelConstructor({
     el: document.createElement('div')
   });
 
   instance.callback = function(action) {
-      var callback = currentMsg.callback;
-      callback(action);
+    let callback = currentMsg.callback;
+    callback(action);
   };
 };
 
-var showNextMsg = function() {
+let showNextMsg = function() {
   if (!instance) {
 
     initInstance();
   }
 
-    if (msgQueue.length > 0) {
-      currentMsg = msgQueue.shift();
+  if (msgQueue.length > 0) {
+    currentMsg = msgQueue.shift();
 
-      var options = currentMsg.options;
-      for (var prop in options) {
-        if (options.hasOwnProperty(prop)) {
-          instance[prop] = options[prop];
-        }
+    let options = currentMsg.options;
+    for (let prop in options) {
+      if (options.hasOwnProperty(prop)) {
+        instance[prop] = options[prop];
       }
-
-      document.body.appendChild(instance.$el);
-
-      Vue.nextTick(() => {
-        instance.visible = true;
-      });
     }
-  
+
+    document.body.appendChild(instance.$el);
+
+    Vue.nextTick(() => {
+      instance.visible = true;
+    });
+  }
+
 };
 
-var model = function(options, callback) {
- 
+let model = function(options, callback) {
+  msgQueue.push({
+    options: merge({}, defaults, model.defaults || {}, options),
+    callback: callback
+  });
 
-    msgQueue.push({
-      options: merge({}, defaults, model.defaults || {}, options),
-      callback: callback
-    });
-
-    showNextMsg();
+  showNextMsg();
 };
 
 export default model;
-export { model };
+export {
+  model
+};

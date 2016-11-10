@@ -184,7 +184,7 @@ Vue.use(paco)
   </card>
 ```
 
-- alert
+- Alert
 
 ```javascript
 Alert({
@@ -203,14 +203,16 @@ showCancelButton 是否显示取消按钮
 
 ```javascript
        Model({
-          message:"<img class='image' src='http://hcz.pingan.com/common/images/download.png' role='presentation'><div class='desc'>说明方案</div><div class='tips'>终极辅助说明方案</div>",
+          img:"http://placehold.it/250/1cabeb/ffffff?text=PACO-UI",
+          desc:"说明方案",
+          tips:"终极辅助说明方案",
           btn:"主按钮"
        },function(action){
           console.log(action);
        })
 ```
 
-- actionsheet
+- Actionsheet
 
 ```javascript
       Actionsheet({
@@ -220,10 +222,11 @@ showCancelButton 是否显示取消按钮
       })
 ```
 
-- picker
-```<List v-on:click.native="showtime" icon="true"><span slot="title">时间</span><span slot="desc">{{timenow}}</span></List>
-```<paco-picker :visible="visible" :starttime="2000" :endtime="2040" v-on:time="time"> </paco-picker>
-
+- Picker
+```javascript
+  <List v-on:click.native="showtime" icon="true"><span slot="title">时间</span><span slot="desc">{{timenow}}</span></List>
+  <paco-picker :visible="visible" :starttime="2000" :endtime="2040" v-on:time="time"> </paco-picker>
+```
     time(val,visible){
       this.timenow=val
       this.visible=visible
@@ -231,3 +234,13 @@ showCancelButton 是否显示取消按钮
     showtime(){
       this.visible=true
     }
+
+- Keyboard
+``` javascript
+    <paco-keyboard v-on:keyboard="values"></paco-keyboard>  
+```
+
+- Actionsheet
+``` javascript
+     <paco-result description=所提交内容已成功完成验证 title=支付成功 btn=success type=success v-on:handleActions="result"></paco-result>
+```

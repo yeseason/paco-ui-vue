@@ -5,10 +5,10 @@
 	</div>
 </template>
 <script>
-	export default{
-		name:"Loading",
-		props:{
-			active:{type:[Boolean,String],default:false}
-		}
+export default{
+	name:"Loading",
+	props:{
+		active:{type:[Boolean,String],default:false}
 	}
+}
 </script>
