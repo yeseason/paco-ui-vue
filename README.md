@@ -223,6 +223,7 @@ showCancelButton 是否显示取消按钮
 ```
 
 - Picker
+
 ```javascript
   <List v-on:click.native="showtime" icon="true"><span slot="title">时间</span><span slot="desc">{{timenow}}</span></List>
   <paco-picker :visible="visible" :starttime="2000" :endtime="2040" v-on:time="time"> </paco-picker>
@@ -241,11 +242,12 @@ showCancelButton 是否显示取消按钮
 ```
 
 - result
+
 ```javascript
        <paco-result description=所提交内容已成功完成验证 title=支付成功 btn=success type=success v-on:handleActions="result"></paco-result>
 ```
-  description 描述
-  title 支付名称
-  btn 按钮名字
-  type 状态 success 成功 failure 失败 warning 警告 waiting 等待 tips 提示
-  v-on:handleActions=“fun” 按钮回调
+    description 描述
+    title 支付名称
+    btn 按钮名字
+    type 状态 success 成功 failure 失败 warning 警告 waiting 等待 tips 提示
+    v-on:handleActions=“fun” 按钮回调
