@@ -1,28 +1,23 @@
-
-import Vue from 'vue';
-import alertvue from './alert.vue';
-
 const CONFIRM_TEXT = '确定';
 const CANCEL_TEXT = '取消';
 
-let defaults = {
+var defaults = {
   title: '',
   message: '',
   confirmButtonText: CONFIRM_TEXT,
   cancelButtonText: CANCEL_TEXT,
-  btn: true,
-  duration: "3000",
-  num: "",
-  showCancelButton: true
+  showCancelButton:true
 };
 
+import Vue from 'vue';
+import alertvue from './alert.vue';
 
-let merge = function(target) {
-  for (let i = 1, j = arguments.length; i < j; i++) {
-    let source = arguments[i];
-    for (let prop in source) {
+var merge = function(target) {
+  for (var i = 1, j = arguments.length; i < j; i++) {
+    var source = arguments[i];
+    for (var prop in source) {
       if (source.hasOwnProperty(prop)) {
-        let value = source[prop];
+        var value = source[prop];
         if (value !== undefined) {
           target[prop] = value;
         }
@@ -33,74 +28,92 @@ let merge = function(target) {
   return target;
 };
 
-let alertConstructor = Vue.extend(alertvue);
+var alertConstructor = Vue.extend(alertvue);
 
-let currentMsg, instance, duration;
-let msgQueue = [];
+var currentMsg, instance;
+var msgQueue = [];
 
-let initInstance = function() {
+var initInstance = function() {
   instance = new alertConstructor({
     el: document.createElement('div')
   });
 
   instance.callback = function(action) {
-    let callback = currentMsg.callback;
-    callback(action);
+    if (currentMsg) {
+      var callback = currentMsg.callback;
+      if (typeof callback === 'function') {
+        if (instance.showInput) {
+          callback(instance.inputValue, action);
+        } else {
+          callback(action);
+        }
+      }
+      if (currentMsg.resolve) {
+        var $type = currentMsg.options.$type;
+        if ($type === 'confirm' ) {
+          if (action === 'confirm') {
+            if (instance.showInput) {
+              currentMsg.resolve({ value: instance.inputValue, action });
+            } else {
+              currentMsg.resolve(action);
+            }
+          } else if (action === 'cancel' && currentMsg.reject) {
+            currentMsg.reject(action);
+          }
+        } else {
+          currentMsg.resolve(action);
+        }
+      }
+    }
   };
 };
 
+var showNextMsg = function() {
+  if (!instance) {
 
-let showNextMsg = function(options) {
-
-
-
-  initInstance();
-
-
-  if (msgQueue.length > 0) {
-    currentMsg = msgQueue.shift();
-
-    let options = currentMsg.options;
-    for (let prop in options) {
-      if (options.hasOwnProperty(prop)) {
-        instance[prop] = options[prop];
-      }
-    }
-    if (!options.btn) {
-
-      duration = options.duration
-    }
-
-    document.body.appendChild(instance.$el);
-
-
-    Vue.nextTick(() => {
-      instance.visible = true;
-      if (!options.btn) {
-        setTimeout(() => {
-
-          instance.$remove();
-          let callback = currentMsg.callback;
-          callback("duration");
-
-        }, duration)
-      }
-    });
+    initInstance();
   }
 
+    if (msgQueue.length > 0) {
+      currentMsg = msgQueue.shift();
+
+      var options = currentMsg.options;
+      for (var prop in options) {
+        if (options.hasOwnProperty(prop)) {
+          instance[prop] = options[prop];
+        }
+      }
+      
+      instance.$appendTo(document.body);
+
+      Vue.nextTick(() => {
+        instance.visible = true;
+      });
+    }
+  
 };
 
-let alert = function(options, callback) {
+var alert = function(options, callback) {
+ 
 
-  msgQueue.push({
-    options: merge({}, defaults, alert.defaults || {}, options),
-    callback: callback
-  });
+    msgQueue.push({
+      options: merge({}, defaults, alert.defaults || {}, options),
+      callback: callback
+    });
 
-  showNextMsg(options);
+    showNextMsg();
+};
+
+alert.setDefaults = function(defaults) {
+  alert.defaults = defaults;
+};
+
+
+alert.close = function() {
+  instance.visible = false;
+  msgQueue = [];
+  currentMsg = null;
 };
 
 export default alert;
-export {
-  alert
-};
+export { alert };

@@ -8,9 +8,9 @@
           <div class="right"></div>
         </div>
       </div>
-      <List v-on:click.native="showtime" icon="true"><span slot="title">时间</span><span slot="desc">{{timenow}}</span></List>
-      <paco-picker :visible="visible" type="normal" :setyear="setyear" :setmonth="setmonth" :setday="setday" cancel="清空" :starttime="2000" :endtime="2040" v-on:time="time"> </paco-picker>
-      <List v-on:click.native="showpicker" icon="true"><span slot="title">时间</span><span slot="desc">{{timeend}}</span></List>
+      <List v-on:click="showtime" icon="true"><span slot="title">时间</span><span slot="desc">{{timenow}}</span></List>
+      <paco-picker :visible="visible"  :setyear="setyear" :setmonth="setmonth" :setday="setday" cancel="清空" :starttime="2000" :endtime="2040" v-on:time="time"> </paco-picker>
+      <List v-on:click="showpicker" icon="true"><span slot="title">时间</span><span slot="desc">{{timeend}}</span></List>
       <paco-picker :visible="show"  :setyear="setyear1" :setmonth="setmonth1" :setday="setday1" cancel="清空" :starttime="2000" :endtime="2040" v-on:time="endshowtime"> </paco-picker>
   </div>
 </template>

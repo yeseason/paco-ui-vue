@@ -1,5 +1,4 @@
 var webpack = require('webpack')
-var utils = require('./build/utils')
 var path = require('path')
 
 module.exports = {
@@ -21,10 +20,6 @@ module.exports = {
       	test: /\.js$/,
       	loader: 'babel',
         exclude: /node_modules/
-      },
-      {
-        test: /\.css$/,
-        loader: 'style-loader!css-loader'
       },
     ]
   },

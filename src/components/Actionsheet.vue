@@ -10,25 +10,25 @@
 	</div>
 </template>
 <script >
-	export default{
-		name:'Actionsheet',
-		data(){
-			return{
-				tips:"提示",
-				btn:"编辑",
-				del:"删除",
-				visible:true,
-				callback:null,
-				cancel:"取消"
-			}
-		},
-		methods:{
-			handleActions(action){
-				this.visible=false;
-				var callback = this.callback
-				
-				callback(action)
-			}
+export default{
+	name:'Actionsheet',
+	data(){
+		return{
+			tips:"提示",
+			btn:"编辑",
+			del:"删除",
+			visible:true,
+			callback:null,
+			cancel:"取消"
+		}
+	},
+	methods:{
+		handleActions(action){
+			this.visible=false;
+			var callback = this.callback
+			
+			callback(action)
 		}
 	}
+}
 </script>

@@ -23,63 +23,63 @@ import Picker from './components/picker.vue'
 import Keyboard from './components/Keyboard.vue'
 import Result from './components/Result.vue'
 
+
 const install = function(Vue) {
-  Vue.component(Ad.name, Ad);
-  Vue.component(Actionsheet.name, Actionsheet);
-  Vue.component(Keyboard.name, Keyboard);
-  Vue.component(Button.name, Button);
-  Vue.component(Border.name, Border);
-  Vue.component(Card.name, Card);
-  Vue.component(Agreement.name, Agreement);
-  Vue.component(Alert.name, Alert);
-  Vue.component(Announcement.name, Announcement);
-  Vue.component(Picker.name, Picker);
-  Vue.component(Result.name, Result);
-  Vue.component(Switch.name, Switch);
-  Vue.component(Input.name, Input);
-  Vue.component(Check.name, Check);
-  Vue.component(Mask.name, Mask);
-  Vue.component(List.name, List);
-  Vue.component(Loading.name, Loading);
-  Vue.component(Search.name, Search);
-  Vue.component(Model.name, Model);
-  Vue.component(Share.name, Share);
-  Vue.component(Tab.name, Tab);
-  Vue.component(Tabs.name, Tabs);
-  Vue.component(Toast.name, Toast);
-  Vue.component(Illustration.name, Illustration);
+    Vue.component(Ad.name, Ad);
+    Vue.component(Actionsheet.name, Actionsheet);
+    Vue.component(Button.name, Button);
+    Vue.component(Border.name, Border);
+    Vue.component(Card.name,Card);
+    Vue.component(Agreement.name, Agreement);
+    Vue.component(Alert.name, Alert);
+    Vue.component(Announcement.name, Announcement);
+    Vue.component(Switch.name, Switch);
+    Vue.component(Input.name, Input);
+    Vue.component(Check.name, Check);
+    Vue.component(Picker.name,Picker);
+    Vue.component(Mask.name, Mask);
+    Vue.component(List.name, List);
+    Vue.component(Loading.name, Loading);
+    Vue.component(Search.name, Search);
+    Vue.component(Model.name, Model);
+    Vue.component(Share.name, Share);
+    Vue.component(Tab.name, Tab);
+    Vue.component(Tabs.name,Tabs);
+    Vue.component(Toast.name, Toast);
+    Vue.component(Illustration.name,Illustration);
+    Vue.component(Keyboard.name,Keyboard);
+    Vue.component(Result.name,Result);
 };
 
 // auto install
 if (typeof window !== 'undefined' && window.Vue) {
-  install(window.Vue);
+    install(window.Vue);
 };
 
 module.exports = {
   install,
   Ad,
   Actionsheet,
-  Keyboard,
   Button,
   Border,
   Agreement,
-  Picker,
   Alert,
   Announcement,
-  Result,
   Card,
   Switch,
   Input,
   Check,
+  Picker,
   Mask,
   List,
   Loading,
   Search,
   Model,
-  Switch,
   Share,
   Tab,
   Tabs,
   Toast,
-  Illustration
+  Illustration,
+  Result,
+  Keyboard
 };

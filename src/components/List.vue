@@ -27,24 +27,24 @@
 </div>
 </template>
 <script>
-export default{
-	name:'List',
-    props:{
-        read:{type:[Boolean,String],default:false},
-        num:{type:String},
-        icon:{type:[Boolean,String],default:false},
-        thumbnail:{type:[Boolean,String],default:false},
-        list:{type:String,default:'single'},
-        style:{type:[Boolean,String],default:false},
-        icondes:{type:[Boolean,String],default:false},
-        title:{type:String}
-    },
-    data(){
-        return{
-            imageSrc:"http://placehold.it/29x29?text="+this.title,
-            imageSrcblue:"http://placehold.it/45/1cabeb/ffffff?text="+this.title,
-            desc:false
+    export default{
+        name:'List',
+        props:{
+            read:{type:[Boolean,String],default:false},
+            num:{type:String},
+            icon:{type:[Boolean,String],default:false},
+            thumbnail:{type:[Boolean,String],default:false},
+            list:{type:String,default:'single'},
+            style:{type:[Boolean,String],default:false},
+            icondes:{type:[Boolean,String],default:false},
+            title:{type:String}
+        },
+        data(){
+            return{
+                imageSrc:"http://placehold.it/29x29?text="+this.title,
+                imageSrcblue:"http://placehold.it/45/1cabeb/ffffff?text="+this.title,
+                desc:false
+            }
         }
     }
-}
 </script>

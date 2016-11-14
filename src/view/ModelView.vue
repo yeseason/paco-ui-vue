@@ -8,7 +8,7 @@
           <div class="right"></div>
         </div>
       </div>
-      <paco-button @click.native="openModel"> 按钮</paco-button>
+      <paco-button @click="openModel"> 按钮</paco-button>
   </div>
 </template>
 
@@ -19,12 +19,10 @@ export default {
   methods:{
     openModel(){
        Model({
-          img:"http://placehold.it/250/1cabeb/ffffff?text=PACO-UI",
-          desc:"说明方案",
-          tips:"终极辅助说明方案",
+          message:"<img class='image' src='http://hcz.pingan.com/common/images/download.png' role='presentation'><div class='desc'>说明方案</div><div class='tips'>终极辅助说明方案</div>",
           btn:"主按钮"
        },function(action){
-          console.log(action);
+          
        })
     }
   }

@@ -8,7 +8,7 @@
           <div class="right"></div>
         </div>
       </div>
-      <paco-button @click.native="openActionsheet">按钮</paco-button>
+      <paco-button @click="openActionsheet">按钮</paco-button>
   </div>
 </template>
 
@@ -19,7 +19,7 @@ export default {
     methods:{
         openActionsheet(){
            Actionsheet({
-              tips:"说明文字说明文字说明文字",
+              tips:"提示",
               btn:"编辑",
               del:"删除",
               cancel:"取消"

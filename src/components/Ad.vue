@@ -3,14 +3,14 @@
 		<img v-if="show" class="logo" v-bind:src="src"   role="presentation">
 		<div class="content">
 			<div class="title">{{title}}</div>
-			<div class="desc"><slot></slot></div>
+			<div class="desc"><slot></slot>{{show}}</div>
 		</div>
 		<span v-bind:click="close" class="close">×</span>
 	</a>
 </template>
 <script>
 	export default{
-		name:'paco-ad',
+		name:'Ad',
 		data(){
 			return {
 				active:true,

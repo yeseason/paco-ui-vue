@@ -8,7 +8,7 @@
           <div class="right"></div>
         </div>
       </div>
-    <Loading :active="active"></Loading>
+    <Loading :active.sync="active"></Loading>
   </div>
 </template>
 

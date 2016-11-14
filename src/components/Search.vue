@@ -1,5 +1,4 @@
 <template>
-
 <div>
 		<div v-on:click="mask"  class="mask " v-bind:class="{hide:!focus}"></div>
 		<div class="search false" v-bind:class="{focus:focus}">
@@ -12,32 +11,30 @@
 					<i class="icon clear paco icon-wrong"></i>
 			</div>
 			<span class="cancel" v-on:click="mask">取消</span>
-		</div>	
+		</div>		
 </div>
+
 </template>
 <script>
 	export default{
 		name:'paco-search',
+		props:{
+			value:{type:String}
+		},
 		data(){
 			return{
-				focus:false,
-				value:'',
+				focus:false
 			}
 		},
 		methods:{
 			search () {
-				this.$refs.search.focus();
 				this.focus=true
-				
 			},
 			mask () {
 				this.focus=false
-				this.value=''
-				this.$emit('search',this.value); 
 			},
-			submit(){
-				this.focus=false
-				this.$emit('search',this.value); 
+			del(){
+				this.value=''
 			}
 		}
 	}

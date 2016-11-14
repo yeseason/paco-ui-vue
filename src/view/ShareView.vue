@@ -8,8 +8,8 @@
           <div class="right"></div>
         </div>
       </div>
-    <paco-button type="primary" v-on:click.native="share" >立即分享</paco-button>
-    <share :active='active' v-on:share="type"></share>
+    <paco-button type="primary" v-on:click="share" >立即分享</paco-button>
+    <share :active.sync='active'></share>
   </div>
 </template>
 
@@ -23,11 +23,7 @@ export default {
   methods:{
     share(){
       this.active=true
-    },
-    type(action){
-      //console.log(action)
-      this.active=false
-    } 
+    }
   }
 }
 </script>

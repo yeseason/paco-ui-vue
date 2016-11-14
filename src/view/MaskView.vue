@@ -8,7 +8,7 @@
           <div class="right"></div>
         </div>
       </div>
-      <paco-mask></paco-mask>
+      <mask></mask>
   </div>
 </template>
 

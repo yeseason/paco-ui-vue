@@ -17,12 +17,12 @@
 	</div>
 </template>
 <script>
-export default{
-	name:'Card',
-	props:{
-		src:{type:String},
-		thumbnail:{type:[Boolean,String],default:false},
-		link:{type:String},
+	export default{
+		name:'Card',
+		props:{
+			src:{type:String},
+			thumbnail:{type:[Boolean,String],default:false},
+			link:{type:String},
+		}
 	}
-}
 </script>

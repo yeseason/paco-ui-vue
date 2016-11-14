@@ -8,7 +8,7 @@
           <div class="right"></div>
         </div>
       </div>
-      <paco-result description=所提交内容已成功完成验证 title=支付成功 btn=success type=failure v-on:handleActions="result"></paco-result>
+      <paco-result description=所提交内容已成功完成验证 title=支付成功 btn=success type=success ></paco-result>
   </div>
 </template>
 <script>

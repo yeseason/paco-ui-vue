@@ -8,7 +8,7 @@
           <div class="right"></div>
         </div>
       </div>
-    <paco-ad  show="true"  link="http://hcz.pingan.com" title="平安好车主">开车能赚钱，买车全网最低</paco-ad>
+    <Ad  show="true"  link="http://hcz.pingan.com" title="平安好车主">开车能赚钱，买车全网最低</Ad>
   </div>
 </template>
 

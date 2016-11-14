@@ -9,7 +9,7 @@
 export default{
 	name:"paco-check",
 	props:{
-		value:{type:String}
+			value:null
 	}
 
 }

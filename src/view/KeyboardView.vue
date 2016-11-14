@@ -8,7 +8,7 @@
           <div class="right"></div>
         </div>
       </div>
-	<paco-keyboard v-on:keyboard="values"></paco-keyboard>	
+	<paco-keyboard val="values"></paco-keyboard>	
 </div>
 
 
@@ -18,13 +18,7 @@
 	export default{
 		data(){
 			return{
-				key:''
-			}
-		},
-		methods:{
-			values(val){
-				this.key = val
-				console.log(this.key)
+				values:''
 			}
 		}
 	}

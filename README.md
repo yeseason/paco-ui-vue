@@ -16,8 +16,7 @@ Vue Components for PACO-UI
 - 引入`paco-ui-vue`库
 
 ```bash
-  npm install vue-touch
-  npm i --save paco-ui-vue
+  npm i --save paco-ui-vue@VERSION
 ```
 
 > 注：`VERSION`为要使用版本
@@ -107,13 +106,13 @@ Vue.use(paco)
 
 - Loading
 ```html
-<Loading :active="active"></Loading>
+<Loading :active.sync="active"></Loading>
 ```
 
 
 - Share
 ```html
-<share :active='active'></share>
+<share :active.sync='active'></share>
 ```
 
 - Switch
@@ -184,7 +183,7 @@ Vue.use(paco)
   </card>
 ```
 
-- Alert
+- alert
 
 ```javascript
 Alert({
@@ -203,16 +202,14 @@ showCancelButton 是否显示取消按钮
 
 ```javascript
        Model({
-          img:"http://placehold.it/250/1cabeb/ffffff?text=PACO-UI",
-          desc:"说明方案",
-          tips:"终极辅助说明方案",
+          message:"<img class='image' src='http://hcz.pingan.com/common/images/download.png' role='presentation'><div class='desc'>说明方案</div><div class='tips'>终极辅助说明方案</div>",
           btn:"主按钮"
        },function(action){
           console.log(action);
        })
 ```
 
-- Actionsheet
+- actionsheet
 
 ```javascript
       Actionsheet({
@@ -222,35 +219,18 @@ showCancelButton 是否显示取消按钮
       })
 ```
 
-- Picker
-
-```javascript
-  <List v-on:click.native="showtime" icon="true"><span slot="title">时间</span><span slot="desc">{{timenow}}</span></List>
-  <paco-picker :visible="visible" :starttime="2000" :endtime="2040" v-on:time="time"> </paco-picker>
-```
-    time(val,visible){
-      this.timenow=val
-      this.visible=visible
-    },
-    showtime(){
-      this.visible=true
-    }
-
-- Keyboard
-
-``` javascript
-    <paco-keyboard v-on:keyboard="values"></paco-keyboard>  
-```
-
 - Result
 
 ```javascript
        <paco-result description=所提交内容已成功完成验证 title=支付成功 btn=success type=success v-on:handleActions="result"></paco-result>
-    
-    description 描述
-    title 支付名称
-    btn 按钮名字
-    type 状态 success 成功 failure 失败 warning 警告 waiting 等待 tips 提示
-    v-on:handleActions=“fun” 按钮回调
+
+       description 描述
+       title 支付名称
+       btn 按钮名字
+       type 状态 success 成功 failure 失败 warning 警告 waiting 等待 tips 提示
+       v-on:handleActions=“fun” 按钮回调
 
 ```
+
+
+

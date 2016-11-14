@@ -8,8 +8,8 @@
           <div class="right"></div>
         </div>
       </div>
-    <Tabs type="normal" act='1'>
-      <Tab title="tabname1" >
+    <Tabs type="pills">
+      <Tab title="tabname1" active=true>
         hello word
       </Tab>
       <Tab title="tabname2" >
@@ -20,7 +20,6 @@
         hello ios
       </Tab>
     </Tabs>
-
   </div>
 </template>
 
@@ -30,9 +29,6 @@ export default {
     return{
       
     }
-  },
-  methods:{
-
   }
 }
 </script>

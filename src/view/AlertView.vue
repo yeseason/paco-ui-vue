@@ -8,7 +8,7 @@
           <div class="right"></div>
         </div>
       </div>
-      <paco-button v-on:click.native="openAlert" type="primary" >主按钮</paco-button>
+      <paco-button v-on:click="openAlert" type="primary" >主按钮</paco-button>
 
   </div>
 </template>
@@ -18,15 +18,11 @@ import { Alert } from '../index.js';
 export default {
   methods:{
     openAlert(){
-      
       Alert({
         title:"温馨提示",
-        message:"你确定要这样么"
+        message:"你确定这么做"
       },function (action) {
-        
-        if(action=='duration'){
-          
-        }
+        console.log(action);
       }
     );
     }

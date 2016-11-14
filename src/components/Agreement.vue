@@ -6,7 +6,7 @@
 </template>
 <script >
 	export default{
-		name:'paco-agreement'
+		name:'Agreement'
 	}
 </script>
 
