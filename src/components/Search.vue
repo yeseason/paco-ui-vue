@@ -3,7 +3,7 @@
 		<div v-on:click="mask"  class="mask " v-bind:class="{hide:!focus}"></div>
 		<div class="search false" v-bind:class="{focus:focus}">
 			<div class="input">
-				<input ref='search' v-on:keydown.13="submit" type="search" required v-model="value">
+				<input ref='search'  type="search" required v-model="value">
 				<span v-on:click="search" class="placeholder">
 					<i class="icon paco icon-search"></i>
 					<span class="text">搜索</span>
