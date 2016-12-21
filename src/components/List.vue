@@ -1,6 +1,6 @@
 <template>
 <div class="item " v-bind:class="{thumbnail:thumbnail,single:list=='single',double:list=='double'}" >
-<img v-bind:src="style?imageSrc:imageSrcblue" v-bind:class="{thumbnail:thumbnail}" v-if="thumbnail" role="presentation">
+<img v-bind:src="imgsrc" v-bind:class="{thumbnail:thumbnail}" v-if="thumbnail" role="presentation">
     <span class="title" v-if="list=='single'">
         
        <slot name="title"></slot>
@@ -37,11 +37,12 @@
             list:{type:String,default:'single'},
             style:{type:[Boolean,String],default:false},
             icondes:{type:[Boolean,String],default:false},
-            title:{type:String}
+            title:{type:String},
+            imgsrc:{type:String}
         },
         data(){
             return{
-                imageSrc:"http://placehold.it/29x29?text="+this.title,
+                
                 imageSrcblue:"http://placehold.it/45/1cabeb/ffffff?text="+this.title,
                 desc:false
             }
