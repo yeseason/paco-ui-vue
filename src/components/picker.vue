@@ -187,19 +187,6 @@
 						this.dayvalue=Math.round(domday.scrollTop/dselected.clientHeight);
 					}
 				},100)
-				this.scroll = setInterval(()=>{
-					if(this.visible){
-						if(this.setyear>1001){
-							this.yearvalue = this.setyear-this.starttime;
-							this.monthvalue = this.setmonth-1;
-							this.dayvalue = this.setday-1;
-							domyear.scrollTop=this.yearvalue*yselected.clientHeight
-							dommoth.scrollTop=this.monthvalue*mselected.clientHeight
-							domday.scrollTop=this.dayvalue*dselected.clientHeight
-							clearInterval(this.scroll);
-						}						
-					}
-				})
 			}			
 
 		},
