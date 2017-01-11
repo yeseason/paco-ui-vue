@@ -25,7 +25,7 @@ export default {
       this.active=true
     },
     type(action){
-      //console.log(action)
+      console.log(action)
       this.active=false
     } 
   }
